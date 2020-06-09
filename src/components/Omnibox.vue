@@ -140,22 +140,23 @@ export default {
       return el.textContent
     },
     runSpecialKeys (e) {
-      if (e.code === 'Tab' && this.tabCompletion) {
+      const key = e.key
+      if (key === 'Tab' && this.tabCompletion) {
         e.preventDefault()
         this.currentSearch += this.completion
         this.setTextContent(this.currentSearch)
         this.focusInput()
-      } else if (e.code === 'ArrowDown') {
+      } else if (key === 'ArrowDown' || key === 'Down') {
         e.preventDefault()
         if (this.listPosition < this.filteredOptions.length - 1) {
           this.listPosition += 1
         }
-      } else if (e.code === "ArrowUp") {
+      } else if (key === "ArrowUp" || key === 'Up') {
           e.preventDefault()
           if (this.listPosition > -1) {
             this.listPosition -= 1
           }
-      } else if (e.code === 'Enter') {
+      } else if (key === 'Enter') {
         e.preventDefault()
         if (this.listPosition > -1) {
           this.selectCurrentOption()
