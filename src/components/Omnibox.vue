@@ -23,6 +23,7 @@
           'width--start': isInputFocused && currentSearch.length === 0,
           'width--full': !isInputFocused && currentSearch.length > 0 }"
         contenteditable="true"
+        @input="updateValue"
         @keydown.stop="runSpecialKeys"
         @focusin="isInputFocused = true"
         @focusout="isInputFocused = false">
@@ -189,6 +190,7 @@ export default {
   mounted () {
     const observer = new MutationObserver((mutations) => {
       mutations.forEach((mutation) => {
+        console.log(mutation)
         this.updateValue()
       });  
     });
