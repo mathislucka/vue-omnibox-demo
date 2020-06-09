@@ -23,7 +23,6 @@
           'width--start': isInputFocused && currentSearch.length === 0,
           'width--full': !isInputFocused && currentSearch.length > 0 }"
         contenteditable="true"
-        @input.stop="updateValue"
         @keydown.stop="runSpecialKeys"
         @focusin="isInputFocused = true"
         @focusout="isInputFocused = false">
