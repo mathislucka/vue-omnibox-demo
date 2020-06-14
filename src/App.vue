@@ -14,7 +14,7 @@
 </template>
 
 <script>
-import Omnibox from 'vue-omnibox'
+import Omnibox from 'vue-omnibox/src/Omnibox'
 
 export default {
   name: 'App',
