@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <label>Simple Omnibox (type: 'cat' or 'serious'):</label>
-    <omnibox class="box" :options="options" @searched="runSearch" box-height="34px" />
+    <omnibox class="box" :options="options" @searched="runSearch" box-height="42px" />
     <p>
       You just searched for "{{ searchTerm }}"
     </p>
