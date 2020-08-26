@@ -1,11 +1,17 @@
 <template>
   <div id="app">
     <label>Simple Omnibox (type: 'cat' or 'serious'):</label>
-    <omnibox class="box" :options="options" />
+    <omnibox class="box" :options="options" @searched="runSearch" box-height="34px" />
+    <p>
+      You just searched for "{{ searchTerm }}"
+    </p>
     <label>Omnibox with scoped slots (type: 'cat' or 'serious'):</label>
     <omnibox
       class="box"
-      :options="options">
+      :options="options"
+      border-color="limegreen"
+      box-line-height="15px"
+      focus-color="red">
       <template v-slot:option="{ option }">
         <img :src="option.img" class="thumbnail"><div class="label">{{ option.label }}</div>
       </template>
@@ -23,6 +29,7 @@ export default {
   },
   data () {
     return {
+      searchTerm: '',
       options: [
       {
         id: 1,
@@ -50,6 +57,11 @@ export default {
         img: 'https://upload.wikimedia.org/wikipedia/commons/4/44/CatLolCatExample.jpg'
       },
     ]
+    }
+  },
+  methods: {
+    runSearch (val) {
+      this.searchTerm = val
     }
   }
 };
